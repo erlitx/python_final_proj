@@ -76,31 +76,7 @@ class MySQLAdapter:
             self.close_connection()
 
 
-    def execute_commit_query(self, query):
-        try:
-            cursor = self.connect_cursor()
-            
-            # Execute the query (can contain multiple statements)
-            for result in cursor.execute(query, multi=True):
-                logger.debug(f"Running query: {result.statement}")
-                
-                # Process results if any (important for INSERT/CREATE queries)
-                if result.with_rows:  # Check if the query returns rows
-                    rows = result.fetchall()
-                    logger.debug(f"Rows fetched: {rows}")
-            
-            # Commit changes after processing all queries
-            self.conn_dwh.commit()
-            logger.debug("All queries executed and committed successfully.")
-        except Exception as e:
-            logger.error(f"Error: {e}")
-            raise
-        finally:
-            cursor.close()
-            self.close_connection()
-
-
-    def execute_commit_query_2(self, query, params=None):
+    def execute_commit_query(self, query, params=None):
         try:
             cursor = self.connect_cursor()
 

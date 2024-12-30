@@ -4,9 +4,9 @@ import yaml
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-from adapters.pg_adapter import PostgresAdapter
 from usecase.pg_select import pg_fetch_table
 from usecase.mysql_insert_data import mysql_insert_data
+
 
 # Возвращает конфиг таблиц и колонок для репликации данных
 def load_replicate_config(config_file="/opt/airflow/dags/usecase/replicate_tables.yaml"):

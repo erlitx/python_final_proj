@@ -7,4 +7,4 @@ def mysql_insert_data(table_to_insert, rows, columns):
     placeholders = ', '.join(['%s'] * len(rows[0]))  # One placeholder for each column
     sql_query = f"REPLACE INTO `{table_to_insert}` ({columns_string}) VALUES ({placeholders})"
     msql_conn = MySQLAdapter()
-    msql_conn.execute_commit_query_2(sql_query, rows)
+    msql_conn.execute_commit_query(sql_query, rows)

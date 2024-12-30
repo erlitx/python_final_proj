@@ -27,7 +27,7 @@ MYSQL_PORT=3306
 1. Убедитесь, что переменные окружения настроены.
 2. Выполните следующую команду для инициализации Airflow:
    ```bash
-   docker-compose -f docker-compose.init.yaml up
+   docker compose -f docker-compose.init.yaml -d up
    ```
 
 ### 2. Поднятие сервисов Airflow, Postgres, MySQL

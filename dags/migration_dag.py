@@ -1,15 +1,12 @@
-import os
+from datetime import datetime
+
 from airflow import DAG
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.mysql.hooks.mysql import MySqlHook
 from airflow.operators.python import PythonOperator
-from datetime import datetime
 
-from adapters.pg_adapter import PostgresAdapter
-from adapters.mysql_adaper import MySQLAdapter
 from usecase.pg_initial_migration import pg_init_migration
 from usecase.mysql_initial_migration import mysql_init_migration
-
 
 
 with DAG(
